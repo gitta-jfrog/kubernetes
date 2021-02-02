@@ -33,3 +33,8 @@ helm upgrade --install art-6 --namespace art-6 --version=4.5.2 center/jfrog/arti
 --set artifactory.migration.enabled=true --set artifactory.migration.timeoutSeconds=3600 \
 --set postgresql.image.tag="9.6.18-debian-10-r7" --set artifactory.license.secret=artifactory-cluster-license,artifactory.license.dataKey=art.lic
 ```
+
+
+https://github.com/jfrog/charts/tree/master/stable/artifactory-ha#special-upgrade-notes
+https://github.com/jfrog/charts/tree/master/stable/artifactory-ha#special-upgrade-notes-1
+
