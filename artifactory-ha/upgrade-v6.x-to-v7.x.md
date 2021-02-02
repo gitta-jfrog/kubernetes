@@ -12,7 +12,7 @@ helm upgrade --install art-6 --namespace art-6 --version=1.4.0 center/jfrog/arti
 --set postgresql.persistence.size=50Gi \
 --set databaseUpgradeReady=true \
 --set unifiedUpgradeAllowed=true \
---set postgresql.image.tag="9.6.15-debian-9-r91" --set artifactory.license.secret=artifactory-cluster-license,artifactory.license.dataKey=art.lic
+--set postgresql.image.tag="9.6.18-debian-10-r7" --set artifactory.license.secret=artifactory-cluster-license,artifactory.license.dataKey=art.lic
 ```
 Delete sts
 ```bash
@@ -31,5 +31,5 @@ helm upgrade --install art-6 --namespace art-6 --version=4.5.2 center/jfrog/arti
 --set databaseUpgradeReady=true \
 --set unifiedUpgradeAllowed=true \
 --set artifactory.migration.enabled=true --set artifactory.migration.timeoutSeconds=3600 \
---set postgresql.image.tag="9.6.15-debian-9-r91" --set artifactory.license.secret=artifactory-cluster-license,artifactory.license.dataKey=art.lic
+--set postgresql.image.tag="9.6.18-debian-10-r7" --set artifactory.license.secret=artifactory-cluster-license,artifactory.license.dataKey=art.lic
 ```
