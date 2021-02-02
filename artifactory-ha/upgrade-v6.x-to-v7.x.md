@@ -4,7 +4,7 @@ Install Artifactory v6.x
 
 ```bash
 helm upgrade --install art-6 --namespace art-6 --version=1.4.0 center/jfrog/artifactory-ha \
---set artifactory.masterKey="c601841ee4a874161d9fc596a6a1974c99970771c6139eae20898eed1c61ace3" \
+--set artifactory.masterKey="c601841ee4a874161d9fc596a6a1974c" \
 --set artifactory.node.replicaCount=1 \
 --set artifactory.persistence.size=50Gi \
 --set postgresql.postgresqlUsername="artifactory" \
