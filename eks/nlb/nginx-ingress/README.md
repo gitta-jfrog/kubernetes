@@ -1,6 +1,11 @@
 
 
 1. Install Nginx-ingrss Controller
+```bash
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm upgrade --install nginx-ingress --namespace nginx-ingress ingress-nginx/ingress-nginx -f values-ingress.yaml
+```
 
 2. Export nginx.tmpl file:
 
@@ -26,7 +31,14 @@ With:
 
 4. 
 ```bash
-kubectl create configmap custom-nginx-template --from-file nginx.tmpl  -n nginx-ingress
+kubectl create configmap custom-nginx-template --from-file nginx.tmpl  -n nginx-ingress 
+```
+5. Uncomment from values-ingress.yaml:
+```yaml
+controller:
+  customTemplate:
+    configMapName: "nginx-https-gitta"
+    configMapKey: "nginx.tmpl"
 ```
 
 5. Redeploy Nginx-ingress controller:
