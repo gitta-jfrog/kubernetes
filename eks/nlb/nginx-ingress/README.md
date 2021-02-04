@@ -28,3 +28,8 @@ With:
 ```bash
 kubectl create configmap custom-nginx-template --from-file nginx.tmpl  -n nginx-ingress
 ```
+
+5. Redeploy Nginx-ingress controller:
+```bash
+helm upgrade --install nginx-ingress --namespace nginx-ingress center/kubernetes-ingress-nginx/ingress-nginx -f values-ingress.yaml
+```
