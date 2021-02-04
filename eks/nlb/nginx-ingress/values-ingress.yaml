@@ -1,6 +1,6 @@
 controller:
   customTemplate:
-    configMapName: "nginx-https-gitta"
+    configMapName: "custom-nginx-template"
     configMapKey: "nginx.tmpl"
   config:
     use-forwarded-headers: "true"
