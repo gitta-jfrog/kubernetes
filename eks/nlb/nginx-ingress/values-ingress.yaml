@@ -1,7 +1,7 @@
 controller:
-  customTemplate:
-    configMapName: "custom-nginx-template"
-    configMapKey: "nginx.tmpl"
+  #customTemplate:
+    #configMapName: "custom-nginx-template"
+    #configMapKey: "nginx.tmpl"
   config:
     use-forwarded-headers: "true"
   service:
