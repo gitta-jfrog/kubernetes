@@ -1,0 +1,18 @@
+artifactory:
+  persistence:
+    type: "nfs"
+    nfs:
+      # Must pass actual IP of NFS server with '--set For artifactory.persistence.nfs.ip=${NFS_IP}'
+      ip:
+      haDataMount: "/data"
+      haBackupMount: "/backup"
+      dataDir: "/var/opt/jfrog/artifactory-ha"
+      backupDir: "/var/opt/jfrog/artifactory-backup"
+      capacity: 200Gi
+      mountOptions: []
+  haDataDir:
+    enabled: true
+    path: /var/opt/jfrog/artifactory-ha
+  haBackupDir:
+    enabled: true
+    path: /var/opt/jfrog/artifactory-ha
