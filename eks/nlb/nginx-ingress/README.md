@@ -13,7 +13,7 @@ helm upgrade --install nginx-ingress --namespace nginx-ingress ingress-nginx/ing
 To copy the nginx template file from the ingress controller pod to your local machine, you can first grab the name of the pod with kubectl get pods then run:
 
 ```bash
-kubectl exec [POD_NAME] -it -- cat /etc/nginx/template/nginx.tmpl > nginx.tmpl
+kubectl -n nginx-ingress exec [POD_NAME] -it -- cat /etc/nginx/template/nginx.tmpl > nginx.tmpl
 ```
 
 3. Edit nginx.tmpl
