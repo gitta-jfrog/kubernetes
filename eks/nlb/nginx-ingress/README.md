@@ -38,7 +38,7 @@ kubectl create configmap custom-nginx-template --from-file nginx.tmpl  -n nginx-
 ```yaml
 controller:
   customTemplate:
-    configMapName: "nginx-https-gitta"
+    configMapName: "custom-nginx-template"
     configMapKey: "nginx.tmpl"
 ```
 
