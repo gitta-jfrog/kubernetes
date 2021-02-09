@@ -7,7 +7,7 @@
 2. All incoming communications goes through AWS Network LoadBalancer(NLB).  https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
 3. Artifactory TLS Enabled https://www.jfrog.com/confluence/display/JFROG/Managing+TLS+Certificates#ManagingTLSCertificates-EnablingTLSintheJFrogPlatform
 4. Nginx configurations:
-* Option A: Using Internal Nginx deployment as part of Artifactory-HA helm chart.
+* Option A: Using internal Nginx deployment as part of Artifactory-HA helm chart.
 * Option B: Using Nginx-Ingress controller (https://kubernetes.github.io/ingress-nginx/)
 
 ## Setup challenges
@@ -24,11 +24,27 @@ https://github.com/kubernetes/kubernetes/issues/73297
 3. Verify HTTPS connection from the client to Artifactory, even that SSL termination in the NLB. Requiered for "docker push" command.
 
 
-## Final setup
+## Resolution
+(all the yaml files with full resolution attached)
 
 1. Artifactory with TLS enabled.
-2. NLB with specific certificate
-3. Nginx special configuration:
+* Option A: Using internal Nginx deployment - Requierd configuration of Artifactory Helm Chart:
 ```yaml
-proxy_set_header    X-Forwarded-Proto https
+nginx:
+  enabled: true
+  https:
+    enabled: false
+  service:
+    ssloffload: true
+```
+* Option B: Using Nginx-Ingress controller - Requierd the following ingress annotations:
+```yaml
+nginx.ingress.kubernetes.io/secure-backends: "true"
+nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+```
+
+
+2. Nginx special configuration - Requierd for the internal Nginx deployment and the Nginx-ingress Controller :
+```yaml
+proxy_set_header    X-Forwarded-Proto https;
 ```
