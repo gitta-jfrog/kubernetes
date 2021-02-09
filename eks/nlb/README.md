@@ -30,6 +30,12 @@ https://github.com/kubernetes/kubernetes/issues/73297
 (all the yaml files with full resolution attached)
 
 1. Artifactory with TLS enabled.
+```yaml
+access:
+  accessConfig:
+    security:
+      tls: true
+```
 * Option A: Using internal Nginx deployment - Requierd configuration of Artifactory Helm Chart:
 ```yaml
 nginx:
