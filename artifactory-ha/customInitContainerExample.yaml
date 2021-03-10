@@ -13,3 +13,8 @@ artifactory:
         - name: plugin-mount
           mountPath: "/tmp/test.groovy"
           subPath: test.groovy
+
+  customVolumes: |
+    - name: plugin-mount
+      secret:
+        secretName: plugin-secret
