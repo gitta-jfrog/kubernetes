@@ -1,0 +1,31 @@
+access:
+  accessConfig:
+    security:
+      tls: false
+
+
+artifactory:
+  service:
+    pool: "all"
+
+ingress:
+  enabled: true
+  defaultBackend:
+    enabled: true
+  hosts:
+    - "artifactory.yardeng.support-testlab.com"
+  routerPath: /
+  artifactoryPath: /artifactory/
+  annotations: 
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "2400s"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "2400s"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+    nginx.ingress.kubernetes.io/server-alias: ~(?<repo>.+)\.artifactory.yardeng.support-testlab.com, artifactory.yardeng.support-testlab.com
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^/(v1|v2)/(.*) /artifactory/api/docker/$repo/$1/$2 break;
+      rewrite ^/(v1|v2)/ /artifactory/api/docker/$1/;
+
+nginx:
+  enabled: false
