@@ -1,0 +1,16 @@
+
+artifactory:
+  copyOnEveryStartup:
+    - source: /tmp/test.groovy
+      # Relative to ARTIFACTORY_HOME/
+      target: etc/artifactory/plugins
+  customVolumes: |
+    - name: plugin-mount
+      secret:
+        secretName: plugin-secret
+
+  ## Add custom volumesMounts
+  customVolumeMounts: |
+    - name: plugin-mount
+      mountPath: "/tmp/test.groovy"
+      subPath: test.groovy
