@@ -1,0 +1,15 @@
+artifactory:
+  customInitContainers: |
+    - name: "custom-plugin-setup"
+      image: "{{ .Values.initContainerImage }}"
+      imagePullPolicy: "{{ .Values.artifactory.image.pullPolicy }}"
+      command:
+        - 'sh'
+        - '-c'
+        - 'cp /tmp/test.groovy {{ .Values.artifactory.persistence.mountPath }}/etc/artifactory/plugins'
+      volumeMounts:
+        - mountPath: "{{ .Values.artifactory.persistence.mountPath }}"
+          name: volume
+        - name: plugin-mount
+          mountPath: "/tmp/test.groovy"
+          subPath: test.groovy
