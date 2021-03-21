@@ -1,0 +1,10 @@
+##kubectl create secret tls nginx-ssl-termination  --cert=artifactory.gittalabs.io.crt --key=artifactory.gittalabs.io.key --namespace artifactory-nginx 
+
+nginx:
+  enabled: true
+  https:
+    enabled: true
+  tlsSecretName: nginx-ssl-termination
+ingress:
+  hosts:
+    - artifactory.gittalabs.io
