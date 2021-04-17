@@ -1,0 +1,18 @@
+artifactory:
+  persistence:
+    type: aws-s3-v3
+    maxCacheSize: 50000000000
+    awsS3V3:
+      testConnection: false
+      identity:
+      credential:
+      region:
+      bucketName: artifactory-aws
+      path: artifactory/filestore
+      endpoint:
+      maxConnections: 50
+      useInstanceCredentials: true
+      usePresigning: false
+      signatureExpirySeconds: 300
+      enableSignedUrlRedirect: false
+      enablePathStyleAccess: false
