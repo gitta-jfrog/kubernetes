@@ -1,0 +1,44 @@
+databaseUpgradeReady: true
+unifiedUpgradeAllowed: true
+artifactory:
+  joinKey: EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+  masterKey: FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+  node:
+    replicaCount: 0
+  primary:
+    replicaCount: 2
+  persistence:
+    size: 20Gi
+  license:
+    secret: artifactory-cluster-license
+    dataKey: art.lic
+postgresql:
+  enabled: true
+  postgresqlUsername: artifactory
+  postgresqlPassword: XXXXXXXXXX
+  postgresqlDatabase: artifactory
+  image:
+    tag: 12.5.0-debian-10-r25
+  persistence:
+    size: 20Gi
+nginx:
+  enabled: false
+
+ingress:
+  enabled: true
+  defaultBackend:
+    enabled: true
+  hosts:
+    - "artifactory.yardeng.support-testlab.com"
+  routerPath: /
+  artifactoryPath: /artifactory/
+  annotations: 
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "2400"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "2400"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+    ####Optional annotations:
+    #nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    #nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+    #nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "0"
