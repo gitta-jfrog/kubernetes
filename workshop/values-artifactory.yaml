@@ -29,7 +29,7 @@ ingress:
   defaultBackend:
     enabled: true
   hosts:
-    - "artifactory.yardeng.support-testlab.com"
+    - "artifactory.example.com"
   routerPath: /
   artifactoryPath: /artifactory/
   annotations: 
