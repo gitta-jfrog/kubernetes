@@ -1,4 +1,7 @@
 artifactory:
+  copyOnEveryStartup:
+    - source: /artifactory_bootstrap/binarystore.xml
+      target: etc/artifactory/
   persistence:
     type: aws-s3-v3
     maxCacheSize: 50000000000
