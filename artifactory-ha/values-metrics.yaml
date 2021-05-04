@@ -8,7 +8,7 @@ artifactory:
         filebeat:
           enabled: true
           elasticsearch:
-            url: http://mission-control.mission-control.svc.cluster.local:8082/elasticsearch
+            url: http://<MISSION_CONTROL_SERVICE_NAME>.<MISSION_CONTROL_NAMESPACE>.svc.cluster.local:8082/elasticsearch
             username: admin
             password: admin
       logging:
