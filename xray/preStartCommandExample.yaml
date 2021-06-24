@@ -1,0 +1,12 @@
+common:
+  ## Custom command to run before Xray startup. Runs BEFORE any microservice-specific preStartCommand
+  preStartCommand: "cp -fv /tmp/certs/ca.crt /etc/ssl/certs/ca.crt
+  customVolumes: |
+    - name: custom-ca-cert
+      secret:
+        name: ca-secret
+  ## Add custom volumesMounts
+  customVolumeMounts: |
+    - name: custom-ca-cert
+      mountPath: "/tmp/certs/ca.crt"
+      subPath: ca.crt
