@@ -1,4 +1,4 @@
-####kubectl create secret generic custom-ca-secret --from-file=./ca.crt
+####kubectl --namespace xray create secret generic custom-ca-secret --from-file=./ca.crt
 
 
 common:
