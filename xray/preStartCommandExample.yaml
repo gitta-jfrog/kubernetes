@@ -7,7 +7,7 @@ common:
   customVolumes: |
     - name: custom-ca-cert
       secret:
-        name: custom-ca-secret
+        secretName: custom-ca-secret
   customVolumeMounts: |
     - name: custom-ca-cert
       mountPath: "/tmp/certs/ca.crt"
