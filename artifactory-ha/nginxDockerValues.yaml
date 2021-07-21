@@ -1,3 +1,4 @@
+nginx:
   artifactoryConf: |
     {{- if .Values.nginx.https.enabled }}
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
