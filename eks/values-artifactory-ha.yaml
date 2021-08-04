@@ -1,0 +1,25 @@
+artifactory:
+  joinKey: "edf2019bc0d330a3f058b4662b16eb7a"
+  masterKey: "c601841ee4a874161d9fc596a6a1974c99970771c6139eae20898eed1c61ace3"
+  node:
+    replicaCount: 0
+  primary:
+    replicaCount: 3
+  license:
+    secret: artifactory-cluster-license
+    dataKey: art.lic
+    
+nginx:
+  enabled: true
+    
+postgresql:
+  enabled: false
+
+unifiedUpgradeAllowed: true
+
+database:
+  type: postgresql
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://POSTGRESQL_HOST:5432/artifactory
+  user: artifactory
+  password: password
