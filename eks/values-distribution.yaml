@@ -7,5 +7,10 @@ replicaCount: 1
 
 unifiedUpgradeAllowed: true
 
+database:
+  url: jdbc:postgresql://POSTGRESQL_HOST:5432/distribution
+  user: distribution
+  password: password
+
 redis:
   password: "1WcseEOS4s"
