@@ -1,0 +1,21 @@
+xray:
+  joinKey: "edf2019bc0d330a3f058b4662b16eb7a"
+  masterKey: "c601841ee4a874161d9fc596a6a1974c99970771c6139eae20898eed1c61ace3"
+  jfrogUrl: "http://artifactory-ha.artifactory-ha:8082"
+
+postgresql:
+  enabled: false
+ 
+unifiedUpgradeAllowed: true
+
+replicaCount: 1
+
+rabbitmq:
+  enabled: true
+  replicaCount: 1
+  auth:
+    password: "1WcseEOS4s"
+    
+
+  
+
