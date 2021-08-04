@@ -1,0 +1,16 @@
+
+missionControl:
+  joinKey: "edf2019bc0d330a3f058b4662b16eb7a"
+  masterKey: "c601841ee4a874161d9fc596a6a1974c99970771c6139eae20898eed1c61ace3"
+  jfrogUrl: "http://artifactory-ha.artifactory-ha:8082"
+  
+unifiedUpgradeAllowed: true
+
+postgresql:
+  enabled: false
+  
+database:
+  url: jdbc:postgresql://POSTGRESQL_HOST:5432/mission_control
+  user: mc
+  password: password
+  name: mission_control
