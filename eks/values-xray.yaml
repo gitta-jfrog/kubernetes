@@ -3,12 +3,20 @@ xray:
   masterKey: "c601841ee4a874161d9fc596a6a1974c99970771c6139eae20898eed1c61ace3"
   jfrogUrl: "http://artifactory-ha.artifactory-ha:8082"
 
+replicaCount: 1
+
+
 postgresql:
   enabled: false
  
 unifiedUpgradeAllowed: true
 
-replicaCount: 1
+database:
+  url: postgres://POSTGRESQL_HOST:5432/xray
+  user: xray
+  password: password
+
+
 
 rabbitmq:
   enabled: true
