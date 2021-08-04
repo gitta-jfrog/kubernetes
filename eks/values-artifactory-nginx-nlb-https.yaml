@@ -1,0 +1,22 @@
+ingress:
+  enabled: false
+  defaultBackend:
+    enabled: false
+  hosts:
+    - "artifactory.example.com"
+  routerPath: /
+  artifactoryPath: /artifactory/
+  annotations: {}
+
+nginx:
+  enabled: true
+  https:
+    enabled: false
+  service:
+    ssloffload: true
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:XXXX"
+      service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+      service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+      service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "3600"
+      service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
