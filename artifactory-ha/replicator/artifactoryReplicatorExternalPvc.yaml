@@ -1,0 +1,10 @@
+artifactory:  
+  replicator:
+    enabled: true
+  customVolumeMounts: |
+    -  name: pvc-replicator
+       mountPath: "/var/opt/jfrog/artifactory/data/replicator"
+  customVolumes: |
+    - name: pvc-replicator
+      persistentVolumeClaim:
+          claimName: "pvc-replicator"
