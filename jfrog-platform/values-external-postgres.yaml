@@ -1,4 +1,13 @@
-artifactory-ha:
+global:
+  joinKey: EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+  masterKey: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+  database:
+    initDBCreation: false
+
+postgresql:
+  enabled: false
+  
+artifactory:
   enabled: true
   postgresql:
     enabled: false
@@ -9,6 +18,11 @@ artifactory-ha:
     url: jdbc:postgresql://POSTGRESQL_HOST:5432/artifactory?sslmode=
     user: artifactory
     password: password
+  mc:
+    enabled: true
+  artifactory:
+    replicaCount: 3
+    
 xray:
   enabled: true
   unifiedUpgradeAllowed: true
@@ -29,13 +43,15 @@ distribution:
     user: distribution
     password: password
 
-mission-control:
+insight:
   enabled: true
   unifiedUpgradeAllowed: true
   postgresql:
     enabled: false
   database:
-    url: jdbc:postgresql://POSTGRESQL_HOST:5432/mission_control?sslmode=
-    user: mc
+    url: jdbc:postgresql://POSTGRESQL_HOST:5432/insight?sslmode=
+    user: insight
     password: password
-    name: mission_control
+    
+pipelines:
+  enabled: false
