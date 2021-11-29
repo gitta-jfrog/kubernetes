@@ -23,7 +23,7 @@ artifactory:
   database:
     type: postgresql
     driver: org.postgresql.Driver
-    url: jdbc:postgresql://POSTGRESQL_HOST:5432/artifactory?sslmode=
+    url: jdbc:postgresql://POSTGRESQL_HOST:5432/artifactory
     user: artifactory
     password: password
   mc:
@@ -35,7 +35,7 @@ xray:
   postgresql:
     enabled: false
   database:
-    url: postgres://POSTGRESQL_HOST:5432/xray?sslmode=
+    url: postgres://POSTGRESQL_HOST:5432/xray
     user: xray
     password: password
 
@@ -45,7 +45,7 @@ distribution:
   postgresql:
     enabled: false
   database:
-    url: jdbc:postgresql://POSTGRESQL_HOST:5432/distribution?sslmode=
+    url: jdbc:postgresql://POSTGRESQL_HOST:5432/distribution
     user: distribution
     password: password
 
@@ -55,7 +55,7 @@ insight:
   postgresql:
     enabled: false
   database:
-    url: jdbc:postgresql://POSTGRESQL_HOST:5432/insight?sslmode=
+    url: jdbc:postgresql://POSTGRESQL_HOST:5432/insight
     user: insight
     password: password
     
