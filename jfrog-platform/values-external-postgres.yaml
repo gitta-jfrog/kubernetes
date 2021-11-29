@@ -6,6 +6,9 @@ global:
 
 postgresql:
   enabled: false
+
+redis:
+  enabled: false
   
 artifactory:
   enabled: true
