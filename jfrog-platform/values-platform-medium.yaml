@@ -1,0 +1,118 @@
+artifactory:
+  artifactory:
+    replicaCount: 3
+    resources:
+      requests:
+        memory: "4Gi"
+        cpu: "2"
+      limits:
+        memory: "8Gi"
+        cpu: "6"
+    javaOpts:
+      xms: "4g"
+      xmx: "6g"
+
+xray:
+  replicaCount: 1
+  server:
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "100m"
+      limits:
+        memory: "8Gi"
+        cpu: "6"
+  analysis:
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "50m"
+      limits:
+        memory: "8Gi"
+        cpu: "6"
+  persist:
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "50m"
+      limits:
+        memory: "8Gi"
+        cpu: "6"
+  indexer:
+    resources:
+      requests:
+        memory: "300Mi"
+        cpu: "50m"
+      limits:
+        memory: "8Gi"
+        cpu: "8"
+
+distribution:
+  replicaCount: 1
+  redis:
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "1"
+      limits:
+        memory: "1Gi"
+        cpu: "1"
+
+  distribution:
+    resources:
+      requests:
+        memory: "2Gi"
+        cpu: "1"
+      limits:
+        memory: "6Gi"
+        cpu: "3"
+    javaOpts:
+      xms: "2g"
+      xmx: "6g"
+
+insight:
+  replicaCount: 1
+  initContainers:
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "10m"
+      limits:
+        memory: "128Mi"
+        cpu: "250m"
+  elasticsearch:
+    resources:
+      requests:
+        memory: "6Gi"
+        cpu: "500m"
+      limits:
+        memory: "6Gi"
+        cpu: "2"
+    ## ElasticSearch xms and xmx should be same!
+    javaOpts:
+      xms: "5g"
+      xmx: "5g"
+
+  insightServer:
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "500m"
+      limits:
+        memory: "4Gi"
+        cpu: "1"
+    javaOpts:
+      xms: "512m"
+      xmx: "3g"
+
+  insightScheduler:
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "500m"
+      limits:
+        memory: "3Gi"
+        cpu: "1"
+    javaOpts:
+      xms: "512m"
+      xmx: "3g"
