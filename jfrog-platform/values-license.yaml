@@ -1,0 +1,8 @@
+## Create secret
+## kubectl -n jfrog-platform create secret generic artifactory-cluster-license --from-file=./art.lic
+
+artifactory:
+  artifactory:
+    license:
+      secret: artifactory-cluster-license
+      dataKey: art.lic
