@@ -1,0 +1,15 @@
+artifactory:
+  persistence:
+    type: "file-system"
+  customVolumes: |
+    - name: "nfs-vol1"
+      persistentVolumeClaim:
+        claimName: "artifactory-ha-nfs-pvc-nfs1"
+    - name: "nfs-vol2"
+      persistentVolumeClaim:
+        claimName: "artifactory-ha-nfs-pvc-nfs2"
+  customVolumeMounts: |
+    - name: "nfs-vol1" 
+      mountPath: "/nfs1"
+    - name: "nfs-vol2"
+      mountPath: "/nfs2"
