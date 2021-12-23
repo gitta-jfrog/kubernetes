@@ -1,0 +1,16 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: artifactory-ha-nfs-pvc-nfs1
+  labels:
+    type: nfs-volume
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 200Gi 
+  selector:
+    matchLabels:
+      id: artifactory-ha-data-pv-nfs1
