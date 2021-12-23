@@ -1,6 +1,8 @@
+
 artifactory:
-  persistence:
-    type: "file-system"
+  copyOnEveryStartup:
+      - source: /artifactory_bootstrap/binarystore.xml
+        target: etc/artifactory/  
   customVolumes: |
     - name: "nfs-vol1"
       persistentVolumeClaim:
@@ -13,3 +15,30 @@ artifactory:
       mountPath: "/nfs1"
     - name: "nfs-vol2"
       mountPath: "/nfs2"
+  persistence:
+    type: "file-system"
+    binarystoreXml:
+      <config version="4">
+        <chain>
+          <provider id="cache-fs" type="cache-fs">
+              <provider id="sharding" type="sharding">
+                  <sub-provider id="shard-1" type="state-aware"/>
+                  <sub-provider id="shard-2" type="state-aware"/>
+              </provider>
+          </provider>
+        </chain>
+          
+          <provider id="sharding" type="sharding">
+              <readBehavior>roundRobin</readBehavior>                     
+              <writeBehavior>percentageFreeSpace</writeBehavior>
+              <redundancy>1</redundancy>
+          </provider>
+        
+          <provider id="shard-1" type="state-aware">
+              <fileStoreDir>/nfs1</fileStoreDir>
+          </provider>
+        
+          <provider id="shard-2" type="state-aware">
+              <fileStoreDir>/nfs2</fileStoreDir>
+          </provider>
+      </config>
