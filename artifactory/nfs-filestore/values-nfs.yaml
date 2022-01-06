@@ -20,7 +20,7 @@ artifactory:
       </chain>
       
       <provider id="cache-fs" type="cache-fs">
-          <cacheProviderDir>/opt/jfrog/artifactory/var/data/cache</cacheProviderDir>
+          <cacheProviderDir>/opt/jfrog/artifactory/var/data/artifactory/cache</cacheProviderDir>
           <maxCacheSize>50000000000</maxCacheSize>
       </provider>
       
