@@ -4,8 +4,8 @@
 ```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
-kubectl create ns nginx-ingress
-helm upgrade --install nginx-ingress --namespace nginx-ingress ingress-nginx/ingress-nginx -f values-ingress.yaml
+kubectl create ns ingress-nginx
+helm upgrade --install ingress-nginx --namespace ingress-nginx ingress-nginx/ingress-nginx -f values-ingress.yaml
 ```
 
 2. Export nginx.tmpl file:
@@ -13,7 +13,7 @@ helm upgrade --install nginx-ingress --namespace nginx-ingress ingress-nginx/ing
 To copy the nginx template file from the ingress controller pod to your local machine, you can first grab the name of the pod with kubectl get pods then run:
 
 ```bash
-kubectl -n nginx-ingress exec [POD_NAME] -it -- cat /etc/nginx/template/nginx.tmpl > nginx.tmpl
+kubectl -n ingress-nginx exec [POD_NAME] -it -- cat /etc/nginx/template/nginx.tmpl > nginx.tmpl
 ```
 
 3. Edit nginx.tmpl
@@ -32,7 +32,7 @@ With:
 
 4. 
 ```bash
-kubectl create configmap custom-nginx-template --from-file nginx.tmpl  -n nginx-ingress 
+kubectl create configmap custom-nginx-template --from-file nginx.tmpl  -n ingress-nginx
 ```
 5. Uncomment from values-ingress.yaml:
 ```yaml
@@ -44,5 +44,5 @@ controller:
 
 5. Redeploy Nginx-ingress controller:
 ```bash
-helm upgrade --install nginx-ingress --namespace nginx-ingress center/kubernetes-ingress-nginx/ingress-nginx -f values-ingress.yaml
+helm upgrade --install ingress-nginx --namespace ingress-nginx ingress-nginx/ingress-nginx -f values-ingress.yaml
 ```
