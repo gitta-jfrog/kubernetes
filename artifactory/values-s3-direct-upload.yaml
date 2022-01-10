@@ -1,4 +1,6 @@
 
+## https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3ObjectStorage-DirectUploadMechanism(Recommended)
+
 copyOnEveryStartup:
     - source: /artifactory_bootstrap/binarystore.xml
     target: etc/artifactory/
