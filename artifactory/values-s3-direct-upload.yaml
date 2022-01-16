@@ -2,6 +2,7 @@
 ## https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3ObjectStorage-DirectUploadMechanism(Recommended)
 
 serviceAccount:
+  create: true
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::XX:role/XX
 
