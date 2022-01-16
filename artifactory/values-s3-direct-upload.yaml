@@ -1,31 +1,32 @@
 
 ## https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3ObjectStorage-DirectUploadMechanism(Recommended)
 
-copyOnEveryStartup:
-    - source: /artifactory_bootstrap/binarystore.xml
-    target: etc/artifactory/
-persistence:
-    binarystoreXml:
-            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <config version="2">
-        <chain>
-            <provider type="cache-fs" id="cache-fs">
-                <provider type="s3-storage-v3" id="s3-storage-v3"/>
-            </provider>
-        </chain>
+artifactory:
+    copyOnEveryStartup:
+        - source: /artifactory_bootstrap/binarystore.xml
+        target: etc/artifactory/
+    persistence:
+        binarystoreXml:
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            <config version="2">
+            <chain>
+                <provider type="cache-fs" id="cache-fs">
+                    <provider type="s3-storage-v3" id="s3-storage-v3"/>
+                </provider>
+            </chain>
 
-        <provider type="cache-fs" id="cache-fs-eventual-s3">
-            <maxCacheSize>5e+10</maxCacheSize>
-            <cacheProviderDir>cache</cacheProviderDir>
-        </provider>
-        <provider type="s3-storage-v3" id="s3-storage-v3">
-            <testConnection>false</testConnection>
-            <bucketName></bucketName>
-            <path>artifactory/filestore</path>
-            <region></region>
-            <signatureExpirySeconds>300</signatureExpirySeconds>
-            <usePresigning>false</usePresigning>
-            <useInstanceCredentials>true</useInstanceCredentials>
-            <maxConnections>50</maxConnections>
-        </provider>
-    </config>  
+            <provider type="cache-fs" id="cache-fs-eventual-s3">
+                <maxCacheSize>5e+10</maxCacheSize>
+                <cacheProviderDir>cache</cacheProviderDir>
+            </provider>
+            <provider type="s3-storage-v3" id="s3-storage-v3">
+                <testConnection>false</testConnection>
+                <bucketName></bucketName>
+                <path>artifactory/filestore</path>
+                <region></region>
+                <signatureExpirySeconds>300</signatureExpirySeconds>
+                <usePresigning>false</usePresigning>
+                <useInstanceCredentials>true</useInstanceCredentials>
+                <maxConnections>50</maxConnections>
+            </provider>
+        </config>
