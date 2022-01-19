@@ -1,0 +1,13 @@
+####kubectl --namespace distribution create configmap distribution-config --from-file distribution.config.import.yml
+
+
+common:
+  preStartCommand: "cp -fv /tmp/distribution.config.import.yml /opt/jfrog/distribution/var/etc/distribution"
+  customVolumes: |
+    - name: custom-distribution-config
+      configMap:
+        name: distribution-config
+  customVolumeMounts: |
+    - name: custom-distribution-config
+      mountPath: "/tmp/distribution.config.import.yml"
+      subPath: distribution.config.import.yml
