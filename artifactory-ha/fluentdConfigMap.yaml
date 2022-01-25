@@ -1,0 +1,23 @@
+## kubectl -n artifactory create configmap fluent-conf --from-file fluentd.conf
+
+artifactory:
+  customVolumes: |
+    - name: custom-fluent-conf
+      configMap:
+        name: fluent-conf
+  customInitContainersBegin: |
+    - name: "download-fluentd-conf-on-persistent-volume"
+      image: "{{ .Values.initContainerImage }}"
+      imagePullPolicy: "{{ .Values.artifactory.image.pullPolicy }}"
+      command:
+        - 'sh'
+        - '-c'
+        - >
+          mkdir -p {{ .Values.artifactory.persistence.mountPath }}/etc/fluentd/;
+          cp -fv /tmp/fluentd.conf {{ .Values.artifactory.persistence.mountPath }}/etc/fluentd/fluentd.conf
+      volumeMounts:
+        - mountPath: "{{ .Values.artifactory.persistence.mountPath }}"
+          name: volume
+        - mountPath: "/tmp/fluentd.conf"
+          subPath: fluentd.conf
+          name:  custom-fluent-conf
