@@ -25,12 +25,8 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
     <provider id="sharding-cluster" type="sharding-cluster">
         <readBehavior>crossNetworkStrategy</readBehavior>
          <writeBehavior>crossNetworkStrategy</writeBehavior>
-         <redundancy>3</redundancy>
-         <lenientLimit>2</lenientLimit>
-         <minSpareUploaderExecutor>2</minSpareUploaderExecutor>
-         <sub-provider id="state-aware" type="state-aware"/>
-         <dynamic-provider id="remote" type="remote"/>
-         <property name="zones" value="local,remote"/>
+         <redundancy>2</redundancy>
+         <lenientLimit>1</lenientLimit>
     </provider>
   
     <!-- Shards add local file-system provider configuration -->
