@@ -4,7 +4,7 @@ Name: Azure Blob Storage - Direct Upload
 Authentication: accountName + accountKey
 
 Valid for: Any Artifactory (standalone + HA)
-Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3ObjectStorage-Direct(Eventual-less)versusEventualUploadMechanismdirectversuseventual
+Reference: 
 ##############################
 -->
 
