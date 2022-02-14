@@ -9,43 +9,13 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Azure+Blob+Storage#Azu
 
 
 <config version="2">
-    <chain> <!--template="cluster-azure-blob-storage"-->
-        <provider id="cache-fs" type="cache-fs">
-            <provider id="sharding-cluster" type="sharding-cluster">
-                <sub-provider id="eventual-cluster" type="eventual-cluster">
-                    <provider id="retry-azure-blob-storage" type="retry">
-                        <provider id="azure-blob-storage" type="azure-blob-storage"/>
-                    </provider>
-                </sub-provider>
-                <dynamic-provider id="remote" type="remote"/>
-            </provider>
-        </provider>
-    </chain>
-    
-    <!-- Set max cache-fs size -->
+    <chain template="cluster-azure-blob-storage"/>
+
     <provider id="cache-fs" type="cache-fs">
         <maxCacheSize>5e+10</maxCacheSize>
         <cacheProviderDir>cache</cacheProviderDir>
     </provider>
-    
-    <!-- cluster eventual Azure Blob Storage Service default chain -->
-    <provider id="sharding-cluster" type="sharding-cluster">
-        <readBehavior>crossNetworkStrategy</readBehavior>
-        <writeBehavior>crossNetworkStrategy</writeBehavior>
-        <redundancy>2</redundancy>
-        <lenientLimit>1</lenientLimit>
-        <property name="zones" value="local,remote"/>
-    </provider>
-    
-    <provider id="remote" type="remote">
-        <zone>remote</zone>
-    </provider>
-    
-    <provider id="eventual-cluster" type="eventual-cluster">
-        <zone>local</zone>
-    </provider>
-    
-    <!--cluster eventual template-->
+
     <provider id="azure-blob-storage" type="azure-blob-storage">
         <accountName>ACCOUNT_NAME</accountName>
         <accountKey>ACCOUNT_KEY</accountKey>
