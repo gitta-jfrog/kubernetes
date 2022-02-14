@@ -10,9 +10,14 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3Ob
 <config version="2">
     <chain template="cluster-s3-storage-v3"/>
 
-    <provider id="cache-fs" type="cache-fs">
-        <maxCacheSize>5e+10</maxCacheSize>
+    <provider id="cache-fs-eventual-s3" type="cache-fs">
+        <maxCacheSize>5e+10</maxCacheSize> 
         <cacheProviderDir>cache</cacheProviderDir>
+    </provider>
+
+    <provider id="sharding-cluster-eventual-s3" type="sharding-cluster">
+        <redundancy>2</redundancy>
+        <lenientLimit>1</lenientLimit>
     </provider>
   
     <provider id="s3-storage-v3" type="s3-storage-v3">
@@ -21,8 +26,6 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3Ob
         <path>pathPrefix</path>
         <region>s3Region</region>
         <useInstanceCredentials>true</useInstanceCredentials>
-        <usePresigning>false</usePresigning>
-        <signatureExpirySeconds>600</signatureExpirySeconds>
         <testConnection>false</testConnection>
     </provider>
 </config>

@@ -10,20 +10,17 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3Ob
 <config version="2">
     <chain template="s3-storage-v3-direct"/>
    
-    <provider type="cache-fs" id="cache-fs-eventual-s3">
+    <provider id="cache-fs" type="cache-fs">
         <maxCacheSize>5e+10</maxCacheSize>
         <cacheProviderDir>cache</cacheProviderDir>
     </provider>
    
     <provider id="s3-storage-v3" type="s3-storage-v3">
-        <testConnection>false</testConnection>
         <endpoint>s3.amazonaws.com</endpoint>
         <bucketName>bucketName</bucketName>
         <path>pathPrefix</path>
         <region>s3Region</region>
         <useInstanceCredentials>true</useInstanceCredentials>
-        <usePresigning>false</usePresigning>
-        <signatureExpirySeconds>600</signatureExpirySeconds>
         <testConnection>false</testConnection>
     </provider>
 </config>

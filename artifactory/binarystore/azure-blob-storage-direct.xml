@@ -10,12 +10,12 @@ Reference:
 <config version="2">
     <chain template="azure-blob-storage-direct"/>
 
-    <provider type="cache-fs" id="cache-fs">
+    <provider id="cache-fs" type="cache-fs">
         <maxCacheSize>5e+10</maxCacheSize>
         <cacheProviderDir>cache</cacheProviderDir>
     </provider>
 
-    <provider type="azure-blob-storage" id="azure-blob-storage">
+    <provider id="azure-blob-storage" type="azure-blob-storage">
         <accountName>accountName</accountName>
         <accountKey>accountKey</accountKey>
         <endpoint>https://accountName.blob.core.windows.net/</endpoint>

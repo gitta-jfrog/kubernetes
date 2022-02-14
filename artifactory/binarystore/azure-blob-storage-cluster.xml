@@ -10,9 +10,14 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Azure+Blob+Storage#Azu
 <config version="2">
     <chain template="cluster-azure-blob-storage"/>
 
-    <provider id="cache-fs" type="cache-fs">
+    <provider id="cache-fs-eventual-azure-blob-storage" type="cache-fs">
         <maxCacheSize>5e+10</maxCacheSize>
         <cacheProviderDir>cache</cacheProviderDir>
+    </provider>
+
+    <provider id="sharding-cluster-eventual-azure-blob-storage" type="sharding-cluster">
+        <redundancy>2</redundancy>
+        <lenientLimit>1</lenientLimit>
     </provider>
 
     <provider id="azure-blob-storage" type="azure-blob-storage">

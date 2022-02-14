@@ -7,14 +7,7 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
 -->
 
 <config version="2">
-    <chain>
-        <provider id="cache-fs" type="cache-fs">
-            <provider id="sharding-cluster" type="sharding-cluster">
-                <sub-provider id="state-aware" type="state-aware"/>
-                <dynamic-provider id="remote" type="remote"/>
-            </provider>
-        </provider>
-    </chain>
+    <chain template="cluster-file-system"/>
   
     <provider id="cache-fs" type="cache-fs">
         <maxCacheSize>5e+10</maxCacheSize>
