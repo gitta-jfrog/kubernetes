@@ -9,10 +9,12 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3Ob
 
 <config version="1">
    <chain template="s3-storage-v3-direct"/>
+   
    <provider type="cache-fs" id="cache-fs-eventual-s3">
        <maxCacheSize>5e+10</maxCacheSize>
        <cacheProviderDir>cache</cacheProviderDir>
    </provider>
+   
    <provider id="s3-storage-v3" type="s3-storage-v3">
        <endpoint>s3.amazonaws.com</endpoint>
        <bucketName>bucketName</bucketName>
