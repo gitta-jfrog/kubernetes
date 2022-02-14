@@ -1,0 +1,23 @@
+<!--
+##############################
+Name: Azure Blob Storage - Direct Upload
+Authentication: accountName + accountKey
+
+Valid for: Any Artifactory (standalone + HA)
+Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3ObjectStorage-Direct(Eventual-less)versusEventualUploadMechanismdirectversuseventual
+##############################
+-->
+
+<config version="2">
+    <chain template="azure-blob-storage-direct"/>
+    <provider type="cache-fs" id="cache-fs">
+         <maxCacheSize>5e+10</maxCacheSize>
+         <cacheProviderDir>cache</cacheProviderDir>
+    </provider>
+    <provider type="azure-blob-storage" id="azure-blob-storage">
+        <accountName>XXXXXXXX</accountName>
+        <accountKey>XXXXXXXX</accountKey>
+        <endpoint>https://<ACCOUNT_NAME>.blob.core.windows.net/</endpoint>
+        <containerName>XXXXXXXX</containerName>
+    </provider>
+</config>
