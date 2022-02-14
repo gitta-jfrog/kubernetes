@@ -17,7 +17,7 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3Ob
     <provider type="azure-blob-storage" id="azure-blob-storage">
         <accountName>XXXXXXXX</accountName>
         <accountKey>XXXXXXXX</accountKey>
-        <endpoint>https://<ACCOUNT_NAME>.blob.core.windows.net/</endpoint>
+        <endpoint>https://ACCOUNT_NAME.blob.core.windows.net/</endpoint>
         <containerName>XXXXXXXX</containerName>
         <multiPartLimit>100000000</multiPartLimit>
         <multipartElementSize>50000000</multipartElementSize>
