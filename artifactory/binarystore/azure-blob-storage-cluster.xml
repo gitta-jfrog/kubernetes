@@ -47,10 +47,10 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Azure+Blob+Storage#Azu
     
     <!--cluster eventual template-->
     <provider id="azure-blob-storage" type="azure-blob-storage">
-        <accountName>XXXXXXXX</accountName>
-        <accountKey>XXXXXXXX</accountKey>
+        <accountName>ACCOUNT_NAME</accountName>
+        <accountKey>ACCOUNT_KEY</accountKey>
         <endpoint>https://ACCOUNT_NAME.blob.core.windows.net/</endpoint>
-        <containerName>XXXXXXXX</containerName>
+        <containerName>CONTAINER_NAME</containerName>
         <multiPartLimit>100000000</multiPartLimit>
         <multipartElementSize>50000000</multipartElementSize>
         <testConnection>false</testConnection>
