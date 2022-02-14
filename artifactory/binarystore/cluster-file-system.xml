@@ -23,15 +23,13 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
     </provider>
     
     <provider id="sharding-cluster" type="sharding-cluster">
-        <readBehavior>crossNetworkStrategy</readBehavior>
-         <writeBehavior>crossNetworkStrategy</writeBehavior>
          <redundancy>2</redundancy>
          <lenientLimit>1</lenientLimit>
     </provider>
   
     <!-- Shards add local file-system provider configuration -->
     <provider id="state-aware" type="state-aware">
-        <fileStoreDir>shard-fs-1</fileStoreDir>
+        <fileStoreDir>filestore</fileStoreDir>
         <zone>local</zone>
     </provider>
 </config>
