@@ -7,7 +7,6 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Azure+Blob+Storage#Azu
 ##############################
 -->
 
-
 <config version="2">
     <chain template="cluster-azure-blob-storage"/>
 
@@ -17,10 +16,10 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Azure+Blob+Storage#Azu
     </provider>
 
     <provider id="azure-blob-storage" type="azure-blob-storage">
-        <accountName>ACCOUNT_NAME</accountName>
-        <accountKey>ACCOUNT_KEY</accountKey>
-        <endpoint>https://ACCOUNT_NAME.blob.core.windows.net/</endpoint>
-        <containerName>CONTAINER_NAME</containerName>
+        <accountName>accountName</accountName>
+        <accountKey>accountKey</accountKey>
+        <endpoint>https://accountName.blob.core.windows.net/</endpoint>
+        <containerName>containerName</containerName>
         <multiPartLimit>100000000</multiPartLimit>
         <multipartElementSize>50000000</multipartElementSize>
         <testConnection>false</testConnection>

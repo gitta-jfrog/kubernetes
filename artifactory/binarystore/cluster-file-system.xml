@@ -6,7 +6,6 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
 ##############################
 -->
 
-
 <config version="2">
     <chain>
         <provider id="cache-fs" type="cache-fs">
@@ -23,11 +22,10 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
     </provider>
     
     <provider id="sharding-cluster" type="sharding-cluster">
-         <redundancy>2</redundancy>
-         <lenientLimit>1</lenientLimit>
+        <redundancy>2</redundancy>
+        <lenientLimit>1</lenientLimit>
     </provider>
   
-    <!-- Shards add local file-system provider configuration -->
     <provider id="state-aware" type="state-aware">
         <fileStoreDir>filestore</fileStoreDir>
         <zone>local</zone>

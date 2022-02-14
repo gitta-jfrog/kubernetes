@@ -2,23 +2,24 @@
 ##############################
 Name: Azure Blob Storage - Direct Upload
 Authentication: accountName + accountKey
-
-Valid for: Any Artifactory (standalone + HA)
+Valid for: Artifactory Single Node + Artifactory HA
 Reference: 
 ##############################
 -->
 
 <config version="2">
     <chain template="azure-blob-storage-direct"/>
+
     <provider type="cache-fs" id="cache-fs">
-         <maxCacheSize>5e+10</maxCacheSize>
-         <cacheProviderDir>cache</cacheProviderDir>
+        <maxCacheSize>5e+10</maxCacheSize>
+        <cacheProviderDir>cache</cacheProviderDir>
     </provider>
+
     <provider type="azure-blob-storage" id="azure-blob-storage">
-        <accountName>ACCOUNT_NAME</accountName>
-        <accountKey>ACCOUNT_KEY</accountKey>
-        <endpoint>https://ACCOUNT_NAME.blob.core.windows.net/</endpoint>
-        <containerName>CONTAINER_NAME</containerName>
+        <accountName>accountName</accountName>
+        <accountKey>accountKey</accountKey>
+        <endpoint>https://accountName.blob.core.windows.net/</endpoint>
+        <containerName>containerName</containerName>
         <multiPartLimit>100000000</multiPartLimit>
         <multipartElementSize>50000000</multipartElementSize>
         <testConnection>false</testConnection>
