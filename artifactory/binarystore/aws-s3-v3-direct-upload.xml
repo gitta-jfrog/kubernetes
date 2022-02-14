@@ -1,0 +1,25 @@
+<!--
+##############################
+Name: AWS S3 V3 - Direct Upload
+Valid for: Any Artifactory (standalone + HA)
+Reference: https://www.jfrog.com/confluence/display/JFROG/S3+Object+Storage#S3ObjectStorage-Direct(Eventual-less)versusEventualUploadMechanismdirectversuseventual
+##############################
+-->
+
+<config version="1">
+   <chain template="s3-storage-v3-direct"/>
+   <provider type="cache-fs" id="cache-fs-eventual-s3">
+       <maxCacheSize>5e+10</maxCacheSize>
+       <cacheProviderDir>cache</cacheProviderDir>
+   </provider>
+   <provider id="s3-storage-v3" type="s3-storage-v3">
+       <endpoint>s3.amazonaws.com</endpoint>
+       <bucketName>bucketName</bucketName>
+       <path>pathPrefix</path>
+       <region>s3Region</region>
+       <identity>yourIdentity</identity>
+       <credential>yourCredentials</credential>
+       <usePresigning>true</usePresigning>
+       <signatureExpirySeconds>600</signatureExpirySeconds>
+   </provider>
+</config>
