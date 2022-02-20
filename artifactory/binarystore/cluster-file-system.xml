@@ -1,7 +1,7 @@
 <!--
 ##############################
 Name: Cluster File System
-Valid for: Artifactory HA
+Valid for: Artifactory High Availability
 Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#FilestoreSharding-FileSystemClusterBinaryProvider
 ##############################
 -->

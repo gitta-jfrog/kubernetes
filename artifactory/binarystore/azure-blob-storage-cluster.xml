@@ -2,7 +2,7 @@
 ##############################
 Name: Azure Blob Storage - Cluster
 Authentication: accountName + accountKey
-Valid for: Artifactory HA
+Valid for: Artifactory High Availability
 Reference: https://www.jfrog.com/confluence/display/JFROG/Azure+Blob+Storage#AzureBlobStorage-AzureBlobStorageClusterBinaryProvider
 ##############################
 -->
