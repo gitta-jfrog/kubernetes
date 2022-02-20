@@ -14,7 +14,7 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
     </chain>
     
     <provider id="cache-fs" type="cache-fs">
-        <maxCacheSize>>5e+10</maxCacheSize>
+        <maxCacheSize>5e+10</maxCacheSize>
         <cacheProviderDir>cache</cacheProviderDir>
     </provider>
     
