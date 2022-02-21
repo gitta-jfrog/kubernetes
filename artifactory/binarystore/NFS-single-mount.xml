@@ -1,7 +1,7 @@
 <!--
 ##############################
 Name: Single NFS
-Valid for: Artifactory HA
+Valid for: Artifactory High Availability
 Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#FilestoreSharding-FileSystemClusterBinaryProvider
 ##############################
 -->
@@ -19,7 +19,7 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
     </provider>
     
     <provider id="file-system" type="file-system">
-        <fileStoreDir>/mnt/shared/artifactory/ha-data/filestore</fileStoreDir>
+        <fileStoreDir>/mnt/shared/artifactory/filestore</fileStoreDir>
     </provider>
 </config>
 

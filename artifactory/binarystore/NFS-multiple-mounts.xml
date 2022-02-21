@@ -29,12 +29,12 @@ Reference: https://www.jfrog.com/confluence/display/JFROG/Filestore+Sharding#Fil
     </provider>
   
     <provider id="shard-1" type="state-aware">
-        <fileStoreDir>/mnt1/artifactory/data/filestore1</fileStoreDir>
+        <fileStoreDir>/mnt/shared/artifactory/filestore1</fileStoreDir>
         <writeEnabled>true</writeEnabled>
     </provider>
   
     <provider id="shard-2" type="state-aware">
-        <fileStoreDir>/mnt1/artifactory/data/filestore1</fileStoreDir>
+        <fileStoreDir>/mnt/shared/artifactory/filestore2</fileStoreDir>
         <writeEnabled>true</writeEnabled>
     </provider>   
 </config>
