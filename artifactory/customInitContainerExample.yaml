@@ -1,0 +1,20 @@
+artifactory:
+  customInitContainers: |
+    - name: "custom-access-config-patch"
+      image: "{{ .Values.initContainerImage }}"
+      imagePullPolicy: "{{ .Values.artifactory.image.pullPolicy }}"
+      command:
+        - 'sh'
+        - '-c'
+        - 'mkdir -p {{ .Values.artifactory.persistence.mountPath }}/etc/access'
+        - 'cp -fv /tmp/etc/access.config.patch.yml {{ .Values.artifactory.persistence.mountPath }}/etc/access/access.config.patch.yml'
+      volumeMounts:
+        - mountPath: "{{ .Values.artifactory.persistence.mountPath }}"
+          name: volume
+        - name: access-config-patch
+          mountPath: "/tmp/etc/access.config.patch.yml"
+          subPath: access.config.patch.yml
+  customVolumes: |
+    - name: access-config-patch
+      secret:
+        secretName: access-config-secret
