@@ -17,4 +17,4 @@ artifactory:
   customVolumes: |
     - name: access-config-patch
       secret:
-        secretName: access-config-secret
+        secretName: access-config-patch-secret
