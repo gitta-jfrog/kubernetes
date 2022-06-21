@@ -1,0 +1,31 @@
+
+artifactory:
+  copyOnEveryStartup:
+      - source: /artifactory_bootstrap/binarystore.xml
+        target: etc/artifactory/  
+  customVolumes: |
+    - name: "nfs-vol"
+      persistentVolumeClaim:
+        claimName: "artifactory-ha-nfs-pvc-nfs"
+  customVolumeMounts: |
+    - name: "nfs-vol" 
+      mountPath: "/nfs"
+  persistence:
+    type: "file-system"
+    binarystoreXml:
+        <config version="2">
+        <chain>
+            <provider id="cache-fs" type="cache-fs">
+                <provider id="file-system" type="file-system"/>
+            </provider>
+        </chain>
+
+        <provider id="cache-fs" type="cache-fs">
+            <maxCacheSize>5e+10</maxCacheSize>
+            <cacheProviderDir>cache</cacheProviderDir>
+        </provider>
+
+        <provider id="file-system" type="file-system">
+            <fileStoreDir>/nfs</fileStoreDir>
+        </provider>
+        </config>
