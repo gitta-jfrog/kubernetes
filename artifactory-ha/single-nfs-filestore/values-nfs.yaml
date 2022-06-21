@@ -1,4 +1,3 @@
-
 artifactory:
   copyOnEveryStartup:
       - source: /artifactory_bootstrap/binarystore.xml
@@ -13,19 +12,19 @@ artifactory:
   persistence:
     type: "file-system"
     binarystoreXml:
-        <config version="2">
-        <chain>
-            <provider id="cache-fs" type="cache-fs">
-                <provider id="file-system" type="file-system"/>
-            </provider>
-        </chain>
-
-        <provider id="cache-fs" type="cache-fs">
-            <maxCacheSize>5e+10</maxCacheSize>
-            <cacheProviderDir>cache</cacheProviderDir>
-        </provider>
-
-        <provider id="file-system" type="file-system">
-            <fileStoreDir>/nfs</fileStoreDir>
-        </provider>
-        </config>
+      <config version="v1">
+      <chain>
+          <provider id="cache-fs" type="cache-fs">
+              <provider id="file-system" type="file-system"/>
+          </provider>
+      </chain>
+      
+      <provider id="cache-fs" type="cache-fs">
+          <cacheProviderDir>/opt/jfrog/artifactory/var/data/artifactory/cache</cacheProviderDir>
+          <maxCacheSize>50000000000</maxCacheSize>
+      </provider>
+      
+      <provider id="file-system" type="file-system">
+          <fileStoreDir>/nfs/filestore</fileStoreDir>
+      </provider>
+      </config>
