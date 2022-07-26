@@ -12,9 +12,9 @@ kubectl create ns artifactory
 helm upgrade --install ingress-nginx --namespace artifactory ingress-nginx/ingress-nginx -f values-ingress-alb.yaml
 ```
 
-3.Deploy Ingress Object for HTTPS Redirect
+3.Deploy Ingress Object for SSL Redirect
 ```
-kubectl -n artifactory apply -f alb-ingress-nginx-controller.yaml    
+kubectl -n artifactory apply -f alb-ingress-ssl-redirect.yaml   
 ```
 
 4. Deploy Artifactory with custom configurations:
