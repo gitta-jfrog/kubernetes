@@ -1,0 +1,12 @@
+controller:
+  config:
+    use-forwarded-headers: "true"
+  replicaCount: 1
+  publishService:
+    enabled: false
+  ingressClass: nginx
+  service:
+    type: NodePort
+    targetPorts:
+      http: http
+      https: http
