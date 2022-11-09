@@ -1,7 +1,4 @@
 artifactory:
-  copyOnEveryStartup:
-      - source: /artifactory_bootstrap/binarystore.xml
-        target: etc/artifactory/  
   customVolumes: |
     - name: "nfs-vol"
       persistentVolumeClaim:
