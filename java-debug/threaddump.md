@@ -15,4 +15,4 @@ echo MissionControl \$(curl -s -o /dev/null -w '%{http_code}' localhost:8091/mc/
 echo '' >> /opt/jfrog/artifactory/var/log/artifactory-monitoring.log
 
 sleep 5s;
-done;" > debug.sh```
+done;" > debug.sh
