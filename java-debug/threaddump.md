@@ -18,7 +18,7 @@ echo '' >> /opt/jfrog/artifactory/var/log/artifactory-monitoring.log
 sleep 5s;
 done;" > debug.sh
 
-
+```
 ```
 chmod +x debug.sh
 
