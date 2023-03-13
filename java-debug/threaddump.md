@@ -21,6 +21,7 @@ done;" > debug.sh
 ```
 ```
 chmod +x debug.sh
+./debug.sh
 
 ```
-./debug.sh
+
