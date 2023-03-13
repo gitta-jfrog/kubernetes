@@ -1,4 +1,5 @@
-```echo -e "PID=\$(pgrep java);
+```
+echo -e "PID=\$(pgrep java);
 for ((count=1; count <= 10000; count++));
 do /opt/jfrog/artifactory/app/third-party/java/bin/jstack -l \$PID  > /opt/jfrog/artifactory/var/log/artifactory-\$(date +%Y%m%d%H%M%S)-td.log
 echo \$(date) >> /opt/jfrog/artifactory/var/log/artifactory-monitoring.log
