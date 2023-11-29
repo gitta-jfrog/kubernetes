@@ -4,9 +4,6 @@ artifactory:
     annotations:
       eks.amazonaws.com/role-arn: arn:aws:iam::<ACCOUNT_ID>:role/<IAM_ROLE_NAME>
   artifactory:
-    copyOnEveryStartup:
-      - source: /artifactory_bootstrap/binarystore.xml
-        target: etc/artifactory/
     persistence:
       type: "aws-s3-v3"
       maxCacheSize: 50000000000
